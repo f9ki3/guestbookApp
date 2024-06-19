@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a class="btn btn-primary mb-3" href="{{ url_for('add_entry') }}">Add Entry</a>
+    <ul class="list-group">
+        {% for entry in entries %}
+            <li class="list-group-item">
+                <h5>{{ entry.name }}</h5>
+                <p>{{ entry.message }}</p>
+                <a class="btn btn-danger btn-sm" href="{{ url_for('delete_entry', id=entry.id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
